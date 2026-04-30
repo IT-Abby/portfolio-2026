@@ -174,36 +174,67 @@ export default function Home() {
             Let me tell you more <br /> about my projects
           </h1>
 
-          <ImageSlideshow
-            images={[
-              { src: "/desktop.png", alt: "Project 1" },
-              { src: "/desktop.png", alt: "Project 2" },
-              { src: "/desktop.png", alt: "Project 3" },
-              { src: "/desktop.png", alt: "Project 4" },
+          <ProjectShowcase
+            projects={[
+              {
+                title: "Beepney",
+                link: "https://beepney.vercel.app/",
+                description: "A web application that manages the features in the mobile side so that they will be enhancing their commuter experience and safety when taking commutes in their daily lives. This web version of beepney is capable of managing the fare matrices in the philippines, emergency contacts, station details, verify user data, and handling complaints.",
+                images: [
+                  { src: "/desktop.png", alt: "Beepney 1" },
+                  { src: "/desktop.png", alt: "Beepney 2" },
+                  { src: "/desktop.png", alt: "Beepney 3" },
+                  { src: "/desktop.png", alt: "Beepney 4" },
+                ],
+                techIcons: [
+                  { src: "/react native.svg", alt: "rn" },
+                  { src: "/ts.svg", alt: "ts" },
+                  { src: "/github.svg", alt: "gh" },
+                  { src: "/supabase.svg", alt: "sb" },
+                  { src: "/expo.svg", alt: "exp" },
+                  { src: "/node.svg", alt: "node" },
+                  { src: "/mapbox.svg", alt: "mb" },
+                  { src: "/tailwind.svg", alt: "tailwind" },
+                ],
+              },
+              {
+                title: "Beepney (Mobile)",
+                link: "https://example.com",
+                description: "A mobile application that helps commuters find the nearest and most convenient public transportation options in their area. It also includes safety features such as emergency hotlines, filing complaints, and more.",
+                images: [
+                  { src: "mockup.svg", alt: "Project 2 - 1" },
+                  { src: "Beepney Mockup 2.svg", alt: "Project 2 - 2" },
+                  { src: "Beepney Mockup 3.svg", alt: "Project 3 - 3" },
+                ],
+                techIcons: [
+                  { src: "/react native.svg", alt: "rn" },
+                  { src: "/github.svg", alt: "gh" },
+                  { src: "/supabase.svg", alt: "sb" },
+                  { src: "/expo.svg", alt: "exp" },
+                  { src: "/node.svg", alt: "node" },
+                  { src: "/ts.svg", alt: "ts" },
+                ],
+              },
+              {
+                title: "IP-Look App",
+                link: "https://example.com",
+                description: "IP lookup application where users can search IP addresses and outputs the geolocation information such as the user’s city region, country, postal code, time zone,coordinates, and Internet Service Provider (ISP)",
+                images: [
+                  { src: "/desktop.png", alt: "Project 2 - 1" },
+                  { src: "/desktop.png", alt: "Project 2 - 2" },
+                ],
+                techIcons: [
+                  { src: "react native.svg", alt: "rn" },
+                  { src: "ts.svg", alt: "ts" },
+                  { src: "ip.svg", alt: "ip" },
+                  { src: "supabase.svg", alt: "sb" },
+                  { src: "expo.svg", alt: "exp" },
+                  { src: "node.svg", alt: "node" },
+                  { src: "github.svg", alt: "gh" },
+                ],
+              },
             ]}
           />
-          <div className="flex flex-row gap-5 items-center">
-            <h1 className="text-5xl md:text-6xl font-semibold leading-tight text-gray-900">
-              Beepney
-            </h1>
-            <LinkIcon href="https://beepney.vercel.app/" />
-          </div>
-          <p className="text-lg text-justify leading-relaxed text-gray-500 pt-4 max-w-full">
-            I'm Gabriel Señar, a BS IT graduate from Ateneo de Naga University.
-            I’m a mobile app developer who enjoys turning ideas into clean, user-friendly experiences. I work mostly with React Native and have a strong foundation in UI/UX, making sure every app I build is both functional and intuitive.
-            I’ve had hands-on experience developing real-world applications, collaborating with teams, and adapting quickly in fast-paced environments. Right now, I’m focused on improving my skills, exploring better design systems, and building products that people actually enjoy using.
-
-          </p>
-          <Marquee className="max-w-md [--duration:20s]">
-            <Image src="react native.svg" alt="rn" width={30} height={30} />
-            <Image src="ts.svg" alt="ts" width={30} height={30} />
-            <Image src="github.svg" alt="gh" width={30} height={30} />
-            <Image src="supabase.svg" alt="sb" width={30} height={30} />
-            <Image src="expo.svg" alt="exp" width={30} height={30} />
-            <Image src="node.svg" alt="node" width={30} height={30} />
-            <Image src="mapbox.svg" alt="mb" width={30} height={30} />
-            <Image src="tailwind.svg" alt="tailwind" width={30} height={30} />
-          </Marquee>
         </div>
       </section>
     </div>
