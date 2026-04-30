@@ -6,23 +6,44 @@ import ImageSlideshow from "./ImageSlideshow";
 import LinkIcon from "./LinkIcon";
 import { Marquee } from "@/components/ui/marquee";
 
+interface ProjectImage {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+}
+
 interface Project {
   title: string;
   link: string;
   description: string;
-  images: { src: string; alt: string }[];
+  images: ProjectImage[];
   techIcons: { src: string; alt: string }[];
 }
 
 interface ProjectShowcaseProps {
   projects: Project[];
+  maxWidth?: string;
+  titleSize?: string;
+  descriptionMaxWidth?: string;
 }
 
-export default function ProjectShowcase({ projects }: ProjectShowcaseProps) {
+export default function ProjectShowcase({
+  projects,
+  maxWidth,
+  titleSize = "text-5xl md:text-6xl",
+  descriptionMaxWidth = "max-w-full",
+}: ProjectShowcaseProps) {
   const [activeProject, setActiveProject] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [direction, setDirection] = useState<"left" | "right">("right");
   const pendingIndex = useRef<number | null>(null);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+  const [swipeOffset, setSwipeOffset] = useState(0);
+  const isDragging = useRef(false);
+
+  const SWIPE_THRESHOLD = 50;
 
   const switchProject = useCallback((nextIndex: number, dir: "left" | "right") => {
     if (isAnimating) return;
@@ -38,26 +59,110 @@ export default function ProjectShowcase({ projects }: ProjectShowcaseProps) {
         setActiveProject(pendingIndex.current);
         pendingIndex.current = null;
       }
-      // Small delay before fading back in
       requestAnimationFrame(() => setIsAnimating(false));
     }, 300);
     return () => clearTimeout(timer);
   }, [isAnimating]);
 
   const goNext = useCallback(() => {
-    const next = (activeProject + 1) % projects.length;
+    if (activeProject >= projects.length - 1) return;
+    const next = activeProject + 1;
     switchProject(next, "right");
   }, [activeProject, projects.length, switchProject]);
 
   const goPrev = useCallback(() => {
-    const prev = (activeProject - 1 + projects.length) % projects.length;
+    if (activeProject <= 0) return;
+    const prev = activeProject - 1;
     switchProject(prev, "left");
-  }, [activeProject, projects.length, switchProject]);
+  }, [activeProject, switchProject]);
+
+  // Shared swipe logic
+  const applySwipeOffset = useCallback((startX: number, currentX: number) => {
+    const diff = currentX - startX;
+    const atStart = activeProject === 0 && diff > 0;
+    const atEnd = activeProject === projects.length - 1 && diff < 0;
+    if (atStart || atEnd) {
+      setSwipeOffset(diff * 0.2);
+    } else {
+      setSwipeOffset(diff * 0.4);
+    }
+  }, [activeProject, projects.length]);
+
+  const resolveSwipe = useCallback(() => {
+    if (touchStartX.current === null || touchEndX.current === null) {
+      setSwipeOffset(0);
+      touchStartX.current = null;
+      isDragging.current = false;
+      return;
+    }
+    const diff = touchStartX.current - touchEndX.current;
+    setSwipeOffset(0);
+    touchStartX.current = null;
+    touchEndX.current = null;
+    isDragging.current = false;
+
+    if (Math.abs(diff) >= SWIPE_THRESHOLD) {
+      if (diff > 0) goNext();
+      else goPrev();
+    }
+  }, [goNext, goPrev]);
+
+  // Touch handlers
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchEndX.current = null;
+    setSwipeOffset(0);
+  }, []);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const currentX = e.touches[0].clientX;
+    touchEndX.current = currentX;
+    applySwipeOffset(touchStartX.current, currentX);
+  }, [applySwipeOffset]);
+
+  const handleTouchEnd = useCallback(() => {
+    resolveSwipe();
+  }, [resolveSwipe]);
+
+  // Mouse handlers (cursor drag)
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    isDragging.current = true;
+    touchStartX.current = e.clientX;
+    touchEndX.current = null;
+    setSwipeOffset(0);
+  }, []);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!isDragging.current || touchStartX.current === null) return;
+    touchEndX.current = e.clientX;
+    applySwipeOffset(touchStartX.current, e.clientX);
+  }, [applySwipeOffset]);
+
+  const handleMouseUp = useCallback(() => {
+    if (!isDragging.current) return;
+    resolveSwipe();
+  }, [resolveSwipe]);
+
+  const handleMouseLeave = useCallback(() => {
+    if (!isDragging.current) return;
+    resolveSwipe();
+  }, [resolveSwipe]);
 
   const project = projects[activeProject];
 
   return (
-    <div className="flex flex-col gap-4 w-full">
+    <div
+      className="flex flex-col gap-4 w-full select-none cursor-grab active:cursor-grabbing"
+      style={{ maxWidth: maxWidth || undefined }}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseLeave}
+    >
       {/* Preload all project images so switching is instant */}
       <div className="hidden">
         {projects.map((p, pi) =>
@@ -67,7 +172,12 @@ export default function ProjectShowcase({ projects }: ProjectShowcaseProps) {
         )}
       </div>
       {/* Slideshow with side arrows */}
-      <div className="relative flex items-center w-full gap-4">
+      <div
+        className="relative flex items-center w-full gap-4 transition-transform duration-150 ease-out md:!transform-none"
+        style={{
+          transform: swipeOffset ? `translateX(${swipeOffset}px)` : undefined,
+        }}
+      >
         {/* Left arrow */}
         {activeProject > 0 && (
           <div className="hidden md:flex shrink-0 relative items-center justify-center">
@@ -118,13 +228,13 @@ export default function ProjectShowcase({ projects }: ProjectShowcaseProps) {
         }}
       >
         <div className="flex flex-row gap-5 items-center">
-          <h1 className="text-5xl md:text-6xl font-semibold leading-tight text-gray-900">
+          <h1 className={`${titleSize} font-semibold leading-tight text-gray-900`}>
             {project.title}
           </h1>
           <LinkIcon href={project.link} />
         </div>
 
-        <p className="text-lg text-justify leading-relaxed text-gray-500 pt-2 max-w-full">
+        <p className={`text-lg text-justify leading-relaxed text-gray-500 pt-2 ${descriptionMaxWidth}`}>
           {project.description}
         </p>
 
@@ -135,19 +245,17 @@ export default function ProjectShowcase({ projects }: ProjectShowcaseProps) {
         </Marquee>
       </div>
 
-      {/* Project dots (mobile-friendly navigation) */}
+      {/* Swipe indicator dots (mobile only — shows position, not clickable paginator) */}
       {projects.length > 1 && (
-        <div className="flex gap-2.5 justify-center pt-2 md:hidden">
+        <div className="flex gap-2 justify-center pt-1 md:hidden">
           {projects.map((_, i) => (
-            <button
+            <div
               key={i}
-              onClick={() => setActiveProject(i)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${
+              className={`h-1 rounded-full transition-all duration-300 ${
                 i === activeProject
-                  ? "bg-[#55CDED] scale-110"
-                  : "bg-gray-300 hover:bg-gray-400"
+                  ? "w-6 bg-[#55CDED]"
+                  : "w-2 bg-gray-300"
               }`}
-              aria-label={`Go to project ${i + 1}`}
             />
           ))}
         </div>

@@ -5,6 +5,11 @@ import SkillBars from "./components/SkillBars";
 import ImageSlideshow from "./components/ImageSlideshow";
 import LinkIcon from "./components/LinkIcon";
 import ProjectShowcase from "./components/ProjectShowcase";
+import ExperienceTimeline from "./components/ExperienceTimeline";
+import Gallery from "./components/Gallery";
+import Testimonials from "./components/Testimonials";
+import ContactForm from "./components/ContactForm";
+import NavLink from "./components/NavLink";
 import { NumberTicker } from "@/components/ui/number-ticker";
 import { Marquee } from "@/components/ui/marquee";
 
@@ -14,42 +19,42 @@ export default function Home() {
       {/* Nav Bar*/}
       <nav className="hidden md:flex fixed top-0 w-full px-8 py-4 justify-center items-center bg-white/10 backdrop-blur-md backdrop-saturate-1 border-b border-white/20 shadow-[0_4px_30px_rgba(0,0,0,0.05)] z-[1000]">
         <ul className="flex gap-8 text-sm font-medium items-center text-[#ABE2F1]">
-          <li><a href="#home" className="nav-link transition-all active:text-[#55CDED]">HOME</a></li>
-          <li><a href="#about" className="nav-link transition-all active:text-[#55CDED]">ABOUT</a></li>
-          <li><a href="#projects" className="nav-link transition-all active:text-[#55CDED]">PROJECTS</a></li>
-          <li><a href="#uiux" className="nav-link transition-all active:text-[#55CDED]">UI/UX</a></li>
-          <li><a href="#journey" className="nav-link transition-all active:text-[#55CDED]">JOURNEY</a></li>
-          <li><a href="#testimonials" className="nav-link transition-all active:text-[#55CDED]">TESTIMONIALS</a></li>
+          <li><NavLink targetId="home" className="nav-link transition-all active:text-[#55CDED]">HOME</NavLink></li>
+          <li><NavLink targetId="about" className="nav-link transition-all active:text-[#55CDED]">ABOUT</NavLink></li>
+          <li><NavLink targetId="projects" className="nav-link transition-all active:text-[#55CDED]">PROJECTS</NavLink></li>
+          <li><NavLink targetId="uiux" className="nav-link transition-all active:text-[#55CDED]">UI/UX</NavLink></li>
+          <li><NavLink targetId="journey" className="nav-link transition-all active:text-[#55CDED]">JOURNEY</NavLink></li>
+          <li><NavLink targetId="testimonials" className="nav-link transition-all active:text-[#55CDED]">TESTIMONIALS</NavLink></li>
         </ul>
       </nav>
 
       {/* Mobile Nav Bar */}
       <nav className="flex md:hidden fixed bottom-0 left-0 w-full bg-white/10 backdrop-blur-xl backdrop-saturate-150 border-t border-white/10 z-[1000] px-2 py-2 justify-around items-center">
-        <a href="#home" className="flex flex-col items-center gap-1 text-[#55CDED] text-[10px] font-medium">
+        <NavLink targetId="home" className="flex flex-col items-center gap-1 text-[#55CDED] text-[10px] font-medium">
           {/* icon placeholder */}
           <div className="w-6 h-6 rounded bg-gray-700" />
           <span>HOME</span>
-        </a>
-        <a href="#about" className="flex flex-col items-center gap-1 text-gray-400 text-[10px] font-medium">
+        </NavLink>
+        <NavLink targetId="about" className="flex flex-col items-center gap-1 text-gray-400 text-[10px] font-medium">
           <div className="w-6 h-6 rounded bg-gray-700" />
           <span>ABOUT</span>
-        </a>
-        <a href="#projects" className="flex flex-col items-center gap-1 text-gray-400 text-[10px] font-medium">
+        </NavLink>
+        <NavLink targetId="projects" className="flex flex-col items-center gap-1 text-gray-400 text-[10px] font-medium">
           <div className="w-6 h-6 rounded bg-gray-700" />
           <span>PROJECTS</span>
-        </a>
-        <a href="#uiux" className="flex flex-col items-center gap-1 text-gray-400 text-[10px] font-medium">
+        </NavLink>
+        <NavLink targetId="uiux" className="flex flex-col items-center gap-1 text-gray-400 text-[10px] font-medium">
           <div className="w-6 h-6 rounded bg-gray-700" />
           <span>UI/UX</span>
-        </a>
-        <a href="#journey" className="flex flex-col items-center gap-1 text-gray-400 text-[10px] font-medium">
+        </NavLink>
+        <NavLink targetId="journey" className="flex flex-col items-center gap-1 text-gray-400 text-[10px] font-medium">
           <div className="w-6 h-6 rounded bg-gray-700" />
           <span>JOURNEY</span>
-        </a>
-        <a href="#testimonials" className="flex flex-col items-center gap-1 text-gray-400 text-[10px] font-medium">
+        </NavLink>
+        <NavLink targetId="testimonials" className="flex flex-col items-center gap-1 text-gray-400 text-[10px] font-medium">
           <div className="w-6 h-6 rounded bg-gray-700" />
           <span>TESTIMONIALS</span>
-        </a>
+        </NavLink>
       </nav>
 
       {/* Home */}
@@ -146,7 +151,7 @@ export default function Home() {
             <p className="text-lg font-medium tracking-widest text-[#55CDED]">
               ABOUT
             </p>
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight text-gray-900">
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900">
               Passionate of being a developer & designer
             </h1>
             <p className="text-lg text-justify leading-relaxed text-gray-500 pt-4 max-w-md">
@@ -170,7 +175,7 @@ export default function Home() {
           <p className="text-lg font-medium tracking-widest text-[#55CDED]">
             PROJECTS
           </p>
-          <h1 className="text-5xl md:text-6xl font-bold leading-tight text-gray-900 mb-10">
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-10">
             Let me tell you more <br /> about my projects
           </h1>
 
@@ -237,6 +242,230 @@ export default function Home() {
           />
         </div>
       </section>
+
+      <section id="ui/ux" className="flex flex-1 items-start justify-center w-full min-h-screen pt-28 pb-16 px-10 md:px-20 overflow-hidden">
+        <div className="flex flex-col w-full max-w-6xl items-start">
+          <p className="text-lg font-medium tracking-widest text-[#55CDED]">
+            UI/UX DESIGNS
+          </p>
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-10">
+            Turning ideas into clean, <br /> user-friendly interfaces
+          </h1>
+
+          <ProjectShowcase
+            projects={[
+              {
+                title: "Beepney (Mobile)",
+                link: "https://www.figma.com/design/c9EHczt9S3nEaAliD89lNg/BEEPNEY--START-UP-?t=PAZG7sWFK0pGGhQH-1",
+                description: "A mobile application that helps commuters find the nearest and most convenient public transportation options in their area. It also includes safety features such as emergency hotlines, filing complaints, and more.",
+                images: [
+                  { src: "mockup.svg", alt: "Project 2 - 1" },
+                  { src: "Beepney Mockup 2.svg", alt: "Project 2 - 2" },
+                  { src: "Beepney Mockup 3.svg", alt: "Project 3 - 3" },
+                ],
+                techIcons: [
+
+                ],
+              },
+              {
+                title: "Gym App",
+                link: "https://www.figma.com/design/exSgPJbKH96ZAFRncoZYVe/UI-UX--Personal-Project-1-?node-id=0-1&t=PAZG7sWFK0pGGhQH-1",
+                description: "A web application that manages the features in the mobile side so that they will be enhancing their commuter experience and safety when taking commutes in their daily lives. This web version of beepney is capable of managing the fare matrices in the philippines, emergency contacts, station details, verify user data, and handling complaints.",
+                images: [
+                  { src: "/gym.svg", alt: "", width: 250, height: 250 },
+                  { src: "/gym2.svg", alt: "", width: 250, height: 250 },
+                  { src: "/gym3.svg", alt: "", width: 250, height: 250 },
+                  { src: "/gym4.svg", alt: "", width: 250, height: 250 },
+                  { src: "/gym5.svg", alt: "", width: 250, height: 250 },
+
+                ],
+                techIcons: []
+              },
+
+              {
+                title: "Tourism App",
+                link: "https://www.figma.com/design/exSgPJbKH96ZAFRncoZYVe/UI-UX--Personal-Project-1-?node-id=2-4417&t=PAZG7sWFK0pGGhQH-1",
+
+                description: "IP lookup application where users can search IP addresses and outputs the geolocation information such as the user’s city region, country, postal code, time zone,coordinates, and Internet Service Provider (ISP)",
+                images: [
+                  { src: "/tourism.svg", alt: "", width: 250, height: 250 },
+                  { src: "/tourism2.svg", alt: "", width: 250, height: 250 },
+                  { src: "/tourism3.svg", alt: "", width: 250, height: 250 },
+                  { src: "/tourism4.svg", alt: "", width: 250, height: 250 },
+                  { src: "/tourism5.svg", alt: "", width: 250, height: 250 },
+
+                ],
+                techIcons: [
+
+                ],
+              },
+              {
+                title: "Professional Portfolio",
+                link: "https://www.figma.com/design/egZSUfi8coTglcptDvwOS4/Portfolio?node-id=59-615&t=1zgBzlzrdWgSffva-1",
+                description: "IP lookup application where users can search IP addresses and outputs the geolocation information such as the user’s city region, country, postal code, time zone,coordinates, and Internet Service Provider (ISP)",
+                images: [
+                  { src: "/desktop.png", alt: "Project 2 - 1" },
+                  { src: "/desktop.png", alt: "Project 2 - 2" },
+                ],
+                techIcons: [
+
+                ],
+              },
+            ]}
+          />
+        </div>
+      </section>
+
+      <section id="journey"
+        className="flex flex-1 items-start justify-center w-full min-h-screen pt-28 pb-16 px-10 md:px-20 overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 w-full max-w-6xl items-start">
+          <div className="flex flex-col gap-1">
+            <p className="text-lg font-medium tracking-widest text-[#55CDED]">
+              JOURNEY
+            </p>
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900">
+              From where I started to where I am
+            </h1>
+            <p className="text-lg text-justify leading-relaxed text-gray-500 pt-4 max-w-md">
+              I started my tech journey in senior high school, which led me to pursue a BS in Information Technology at Ateneo de Naga University. During college, I worked as a Frontend Developer for my capstone project, where I focused on building clean and user-friendly interfaces. <br /><br />
+              I then gained hands-on experience as a UI/UX and Mobile App Developer intern at Bald Puppies Solutions Inc., working on real-world projects in a collaborative environment. Currently, I continue to grow in the same role at OkieDoc+, where I design and develop intuitive mobile applications in a remote setup. <br /><br />
+              Each experience has helped me refine my skills in both design and development, shaping how I create user-centered digital solutions.
+            </p>
+          </div>
+          <div className="flex flex-col mt-10 justify-center">
+            <ExperienceTimeline />
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" className="flex flex-1 items-start justify-center w-full pt-28 pb-16 px-10 md:px-20 overflow-hidden">
+        <div className="flex flex-col w-full max-w-6xl items-start">
+          <p className="text-lg font-medium tracking-widest text-[#55CDED]">
+            GALLERY
+          </p>
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-10">
+            Capturing the process behind <br /> every interface
+          </h1>
+
+          <Gallery
+            images={[
+              { src: "/pic 1.jpg", alt: "" },
+              { src: "/fjc.jpg", alt: "" },
+              { src: "/fjc 2.jpg", alt: "" },
+              { src: "/dti.jpg", alt: "" },
+              { src: "/bepni.jpg", alt: "" },
+              { src: "/bepni2.webp", alt: "" },
+              { src: "/bepni3.jpg", alt: "" },
+              { src: "/ck.jpg", alt: "" },
+            ]}
+          />
+
+        </div>
+      </section>
+
+      <section id="testimonials" className="flex flex-1 items-start justify-center w-full pt-28 pb-16 px-10 md:px-20 overflow-hidden">
+        <div className="flex flex-col w-full max-w-6xl items-start">
+          <p className="text-lg font-medium tracking-widest text-[#55CDED]">
+            TESTIMONIALS
+          </p>
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-10">
+            Words from the people <br /> I&apos;ve worked with
+          </h1>
+
+          <Testimonials
+            reviews={[
+              {
+                name: "Eric Tan Jr.",
+                username: "UI/UX Designer",
+                body: "He turns design concepts into pixel-perfect mobile interfaces. What we design is exactly what users experience.",
+                img: "/ck.svg",
+              },
+              {
+                name: "Karl Axcel Lumabi",
+                username: "UI/UX Designer / Frontend Developer",
+                body: "Working with him feels seamless—he understands both design and development, which makes collaboration fast and efficient.",
+                img: "/ck.svg",
+              },
+              {
+                name: "Romar Josh Castro",
+                username: "Frontend Developer",
+                body: "His attention to detail in UI implementation is on another level. Everything feels smooth, responsive, and polished.",
+                img: "/ck.svg",
+              },
+              {
+                name: "Miguel Armando Sta. Ana",
+                username: "Backend Developer",
+                body: "Integrating APIs with his mobile apps is always smooth. He structures things cleanly and thinks ahead.",
+                img: "/ck.svg",
+              },
+              {
+                name: "John Kristoffer Bicierro",
+                username: "Full Stack / DevOps",
+                body: "He builds with scalability in mind. The apps are not just good-looking—they’re production-ready.",
+                img: "/ck.svg",
+              },
+              {
+                name: "Patrick Nhel Estrella",
+                username: "Full Stack Developer",
+                body: "You can rely on him to deliver features that work exactly as expected, with solid UI and clean logic.",
+                img: "/ck.svg",
+              },
+              {
+                name: "John Ken Lanon",
+                username: "QA Engineer",
+                body: "Very minimal bugs and consistent UI behavior. His builds are easy to test and rarely break.",
+                img: "/ck.svg",
+              },
+              {
+                name: "Michael Daanoy",
+                username: "Project Manager",
+                body: "He communicates clearly, meets deadlines, and delivers high-quality mobile experiences every time.",
+                img: "/ck.svg",
+              },
+              {
+                name: "Aaron Joshua Señar",
+                username: "Product Owner / Software Engineer",
+                body: "He understands user needs and translates them into intuitive mobile solutions that actually deliver value.",
+                img: "/okiedoc+.svg",
+              },
+            ]}
+          />
+
+        </div>
+      </section>
+
+      <section id="contact" className="flex flex-1 items-start justify-center w-full min-h-screen pt-28 pb-16 px-10 md:px-20 overflow-hidden">
+        <div className="flex flex-col w-full max-w-6xl items-start">
+          <p className="text-lg font-medium tracking-widest text-[#55CDED]">
+            CONTACT
+          </p>
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-10">
+            Got an idea? Let’s talk
+          </h1>
+          <div className="flex items-center w-full justify-center">  <ContactForm /></div>
+
+        </div>
+      </section>
+      <footer>
+        <hr className="border-t w-[50%] items-center justify-center mx-auto border-[#55CDED]/30 mt-4" />
+        <div className="w-full max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between py-12">
+
+          <div className="text-center md:text-left flex items-center gap-2">
+            <Image src="/abby.svg" alt="abby" height={24} width={24}></Image>
+            <p className="text-sm font-medium text-gray-600">
+              © 2026 Gabriel Señar. All rights reserved.
+            </p>
+          </div>
+          <div className="flex gap-6 mt-8 md:mt-0">
+            <a href="https://github.com/IT-Abby" className="text-gray-600 hover:text-gray-900">
+              <Image src="/github.svg" alt="gh" height={24} width={24}></Image>
+            </a>
+            <a href="https://www.linkedin.com/in/gabriel-se%C3%B1ar-it/" className="text-gray-600 hover:text-gray-900">
+              <Image src="/linkedin.svg" alt="gh" height={24} width={24}></Image>
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

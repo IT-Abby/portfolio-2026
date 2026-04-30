@@ -3,8 +3,15 @@
 import Image from "next/image";
 import { useState, useCallback, useEffect, useRef } from "react";
 
+interface SlideshowImage {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+}
+
 interface ImageSlideshowProps {
-  images: { src: string; alt: string }[];
+  images: SlideshowImage[];
   width?: number;
   height?: number;
 }
@@ -60,8 +67,8 @@ export default function ImageSlideshow({
             <Image
               src={img.src}
               alt={img.alt}
-              width={width}
-              height={height}
+              width={img.width || width}
+              height={img.height || height}
               draggable={false}
               className="select-none"
             />
