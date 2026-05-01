@@ -413,6 +413,9 @@ export default function Home() {
             <p className="text-sm font-medium text-gray-600">
               © 2026 Gabriel Señar. All rights reserved.
             </p>
+            <a href="/CV - SEÑAR.pdf" download className="text-gray-600 font-semibold hover:text-gray-900">
+              Curriculum Vitae
+            </a>
           </div>
           <div className="flex gap-6 mt-8 md:mt-0">
             <a href="https://github.com/IT-Abby" className="text-gray-600 hover:text-gray-900">
