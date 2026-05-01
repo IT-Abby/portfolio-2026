@@ -190,10 +190,10 @@ export default function Gallery({ images }: GalleryProps) {
           {selectedImage > 0 && (
             <button
               onClick={(e) => { e.stopPropagation(); setSelectedImage(selectedImage - 1); }}
-              className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-white/20 transition-all duration-200 cursor-pointer"
+              className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2  flex items-center justify-center transition-all duration-200 cursor-pointer"
               aria-label="Previous image"
             >
-              <Image src="/arrow.svg" alt="prev" width={20} height={20} className="rotate-180 invert" />
+              <Image src="/prevbutton.svg" alt="prev" width={50} height={50} />
             </button>
           )}
 
@@ -215,10 +215,10 @@ export default function Gallery({ images }: GalleryProps) {
           {selectedImage < images.length - 1 && (
             <button
               onClick={(e) => { e.stopPropagation(); setSelectedImage(selectedImage + 1); }}
-              className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-white/20 transition-all duration-200 cursor-pointer"
+              className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2  flex items-center justify-center transition-all duration-200 cursor-pointer"
               aria-label="Next image"
             >
-              <Image src="/arrow.svg" alt="next" width={20} height={20} className="invert" />
+              <Image src="/next button.svg" alt="next" width={50} height={50}  />
             </button>
           )}
 

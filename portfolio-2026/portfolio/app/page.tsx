@@ -9,58 +9,19 @@ import ExperienceTimeline from "./components/ExperienceTimeline";
 import Gallery from "./components/Gallery";
 import Testimonials from "./components/Testimonials";
 import ContactForm from "./components/ContactForm";
-import NavLink from "./components/NavLink";
+import NavigationWrapper from "./components/NavigationWrapper";
 import { NumberTicker } from "@/components/ui/number-ticker";
 import { Marquee } from "@/components/ui/marquee";
 
 export default function Home() {
   return (
+    <NavigationWrapper>
     <div className="flex flex-col flex-1 bg-white font-[family-name:var(--font-quicksand)]">
-      {/* Nav Bar*/}
-      <nav className="hidden md:flex fixed top-0 w-full px-8 py-4 justify-center items-center bg-white/10 backdrop-blur-md backdrop-saturate-1 border-b border-white/20 shadow-[0_4px_30px_rgba(0,0,0,0.05)] z-[1000]">
-        <ul className="flex gap-8 text-sm font-medium items-center text-[#ABE2F1]">
-          <li><NavLink targetId="home" className="nav-link transition-all active:text-[#55CDED]">HOME</NavLink></li>
-          <li><NavLink targetId="about" className="nav-link transition-all active:text-[#55CDED]">ABOUT</NavLink></li>
-          <li><NavLink targetId="projects" className="nav-link transition-all active:text-[#55CDED]">PROJECTS</NavLink></li>
-          <li><NavLink targetId="uiux" className="nav-link transition-all active:text-[#55CDED]">UI/UX</NavLink></li>
-          <li><NavLink targetId="journey" className="nav-link transition-all active:text-[#55CDED]">JOURNEY</NavLink></li>
-          <li><NavLink targetId="testimonials" className="nav-link transition-all active:text-[#55CDED]">TESTIMONIALS</NavLink></li>
-        </ul>
-      </nav>
-
-      {/* Mobile Nav Bar */}
-      <nav className="flex md:hidden fixed bottom-0 left-0 w-full bg-white/10 backdrop-blur-xl backdrop-saturate-150 border-t border-white/10 z-[1000] px-2 py-2 justify-around items-center">
-        <NavLink targetId="home" className="flex flex-col items-center gap-1 text-[#55CDED] text-[10px] font-medium">
-          {/* icon placeholder */}
-          <div className="w-6 h-6 rounded bg-gray-700" />
-          <span>HOME</span>
-        </NavLink>
-        <NavLink targetId="about" className="flex flex-col items-center gap-1 text-gray-400 text-[10px] font-medium">
-          <div className="w-6 h-6 rounded bg-gray-700" />
-          <span>ABOUT</span>
-        </NavLink>
-        <NavLink targetId="projects" className="flex flex-col items-center gap-1 text-gray-400 text-[10px] font-medium">
-          <div className="w-6 h-6 rounded bg-gray-700" />
-          <span>PROJECTS</span>
-        </NavLink>
-        <NavLink targetId="uiux" className="flex flex-col items-center gap-1 text-gray-400 text-[10px] font-medium">
-          <div className="w-6 h-6 rounded bg-gray-700" />
-          <span>UI/UX</span>
-        </NavLink>
-        <NavLink targetId="journey" className="flex flex-col items-center gap-1 text-gray-400 text-[10px] font-medium">
-          <div className="w-6 h-6 rounded bg-gray-700" />
-          <span>JOURNEY</span>
-        </NavLink>
-        <NavLink targetId="testimonials" className="flex flex-col items-center gap-1 text-gray-400 text-[10px] font-medium">
-          <div className="w-6 h-6 rounded bg-gray-700" />
-          <span>TESTIMONIALS</span>
-        </NavLink>
-      </nav>
 
       {/* Home */}
       <section
         id="home"
-        className="flex flex-1 items-start justify-center w-full min-h-screen pt-28 pb-16 px-10 md:px-20 overflow-hidden"
+        className="flex flex-1 items-start justify-center w-full pt-28 pb-16 px-10 md:px-20 overflow-hidden"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 w-full max-w-6xl items-start">
           {/* Left Column*/}
@@ -145,7 +106,7 @@ export default function Home() {
 
       {/* About */}
       <section id="about"
-        className="flex flex-1 items-start justify-center w-full min-h-screen pt-28 pb-16 px-10 md:px-20 overflow-hidden">
+        className="flex flex-1 items-start justify-center w-full pt-28 pb-16 px-10 md:px-20 overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 w-full max-w-6xl items-start">
           <div className="flex flex-col gap-1">
             <p className="text-lg font-medium tracking-widest text-[#55CDED]">
@@ -170,7 +131,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="projects" className="flex flex-1 items-start justify-center w-full min-h-screen pt-28 pb-16 px-10 md:px-20 overflow-hidden">
+      {/*Projects*/}
+      <section id="projects" className="flex flex-1 items-start justify-center w-full pt-28 pb-16 px-10 md:px-20 overflow-hidden">
         <div className="flex flex-col w-full max-w-6xl items-start">
           <p className="text-lg font-medium tracking-widest text-[#55CDED]">
             PROJECTS
@@ -187,9 +149,9 @@ export default function Home() {
                 description: "A web application that manages the features in the mobile side so that they will be enhancing their commuter experience and safety when taking commutes in their daily lives. This web version of beepney is capable of managing the fare matrices in the philippines, emergency contacts, station details, verify user data, and handling complaints.",
                 images: [
                   { src: "/desktop.png", alt: "Beepney 1" },
-                  { src: "/desktop.png", alt: "Beepney 2" },
-                  { src: "/desktop.png", alt: "Beepney 3" },
-                  { src: "/desktop.png", alt: "Beepney 4" },
+                  { src: "/beepney 1.svg", alt: "Beepney 2" },
+                  { src: "/beepney 2.svg", alt: "Beepney 3" },
+                  { src: "/beepney 3.svg", alt: "Beepney 4" },
                 ],
                 techIcons: [
                   { src: "/react native.svg", alt: "rn" },
@@ -204,7 +166,7 @@ export default function Home() {
               },
               {
                 title: "Beepney (Mobile)",
-                link: "https://example.com",
+                link: "https://drive.google.com/drive/folders/1qONZ55PTM9dA-UjyeiR9QGvVL57ro6Hs?usp=sharing",
                 description: "A mobile application that helps commuters find the nearest and most convenient public transportation options in their area. It also includes safety features such as emergency hotlines, filing complaints, and more.",
                 images: [
                   { src: "mockup.svg", alt: "Project 2 - 1" },
@@ -243,6 +205,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* UI/UX */}
       <section id="ui/ux" className="flex flex-1 items-start justify-center w-full min-h-screen pt-28 pb-16 px-10 md:px-20 overflow-hidden">
         <div className="flex flex-col w-full max-w-6xl items-start">
           <p className="text-lg font-medium tracking-widest text-[#55CDED]">
@@ -316,6 +279,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Journey */}
       <section id="journey"
         className="flex flex-1 items-start justify-center w-full min-h-screen pt-28 pb-16 px-10 md:px-20 overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 w-full max-w-6xl items-start">
@@ -363,6 +327,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Testimonials */}
       <section id="testimonials" className="flex flex-1 items-start justify-center w-full pt-28 pb-16 px-10 md:px-20 overflow-hidden">
         <div className="flex flex-col w-full max-w-6xl items-start">
           <p className="text-lg font-medium tracking-widest text-[#55CDED]">
@@ -434,6 +399,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Contact */}
       <section id="contact" className="flex flex-1 items-start justify-center w-full min-h-screen pt-28 pb-16 px-10 md:px-20 overflow-hidden">
         <div className="flex flex-col w-full max-w-6xl items-start">
           <p className="text-lg font-medium tracking-widest text-[#55CDED]">
@@ -446,6 +412,9 @@ export default function Home() {
 
         </div>
       </section>
+
+
+      {/* Footer */}
       <footer>
         <hr className="border-t w-[50%] items-center justify-center mx-auto border-[#55CDED]/30 mt-4" />
         <div className="w-full max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between py-12">
@@ -467,5 +436,6 @@ export default function Home() {
         </div>
       </footer>
     </div>
+    </NavigationWrapper>
   );
 }
