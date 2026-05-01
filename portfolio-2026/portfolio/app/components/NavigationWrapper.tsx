@@ -80,7 +80,7 @@ export default function NavigationWrapper({ children }: NavigationWrapperProps) 
             inactiveClassName="text-gray-400"
           >
             <MobileNavIcon icon="testimonials" size={18} />
-            <span>CHAT</span>
+            <span>TESTIMONIALS</span>
           </NavLink>
         </div>
       </nav>

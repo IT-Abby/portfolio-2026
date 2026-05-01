@@ -220,7 +220,7 @@ export default function Home() {
               {
                 title: "Beepney (Mobile)",
                 link: "https://www.figma.com/design/c9EHczt9S3nEaAliD89lNg/BEEPNEY--START-UP-?t=PAZG7sWFK0pGGhQH-1",
-                description: "A mobile application that helps commuters find the nearest and most convenient public transportation options in their area. It also includes safety features such as emergency hotlines, filing complaints, and more.",
+                description: "A Redesigned UI/UX for a mobile application that helps commuters find the nearest and most convenient public transportation options in their area. It also includes safety features such as emergency hotlines, filing complaints, and more.",
                 images: [
                   { src: "mockup.svg", alt: "Project 2 - 1" },
                   { src: "Beepney Mockup 2.svg", alt: "Project 2 - 2" },
@@ -233,7 +233,7 @@ export default function Home() {
               {
                 title: "Gym App",
                 link: "https://www.figma.com/design/exSgPJbKH96ZAFRncoZYVe/UI-UX--Personal-Project-1-?node-id=0-1&t=PAZG7sWFK0pGGhQH-1",
-                description: "A web application that manages the features in the mobile side so that they will be enhancing their commuter experience and safety when taking commutes in their daily lives. This web version of beepney is capable of managing the fare matrices in the philippines, emergency contacts, station details, verify user data, and handling complaints.",
+                description: "A UI/UX Design for a mobile application that serves as a platform for fitness enthusiasts to achieve their wellness goals. The app provides personalized workout plans, progress tracking, and features to enhance their fitness journey.",
                 images: [
                   { src: "/gym.svg", alt: "", width: 250, height: 250 },
                   { src: "/gym2.svg", alt: "", width: 250, height: 250 },
@@ -249,7 +249,7 @@ export default function Home() {
                 title: "Tourism App",
                 link: "https://www.figma.com/design/exSgPJbKH96ZAFRncoZYVe/UI-UX--Personal-Project-1-?node-id=2-4417&t=PAZG7sWFK0pGGhQH-1",
 
-                description: "IP lookup application where users can search IP addresses and outputs the geolocation information such as the user’s city region, country, postal code, time zone,coordinates, and Internet Service Provider (ISP)",
+                description: "A UI/UX Design for a tourism application where users can search for tourist destinations and get information about them.",
                 images: [
                   { src: "/tourism.svg", alt: "", width: 250, height: 250 },
                   { src: "/tourism2.svg", alt: "", width: 250, height: 250 },
@@ -262,18 +262,7 @@ export default function Home() {
 
                 ],
               },
-              {
-                title: "Professional Portfolio",
-                link: "https://www.figma.com/design/egZSUfi8coTglcptDvwOS4/Portfolio?node-id=59-615&t=1zgBzlzrdWgSffva-1",
-                description: "IP lookup application where users can search IP addresses and outputs the geolocation information such as the user’s city region, country, postal code, time zone,coordinates, and Internet Service Provider (ISP)",
-                images: [
-                  { src: "/desktop.png", alt: "Project 2 - 1" },
-                  { src: "/desktop.png", alt: "Project 2 - 2" },
-                ],
-                techIcons: [
-
-                ],
-              },
+        
             ]}
           />
         </div>
