@@ -187,8 +187,8 @@ export default function Home() {
                 link: "https://example.com",
                 description: "IP lookup application where users can search IP addresses and outputs the geolocation information such as the user’s city region, country, postal code, time zone,coordinates, and Internet Service Provider (ISP)",
                 images: [
-                  { src: "/desktop.png", alt: "Project 2 - 1" },
-                  { src: "/desktop.png", alt: "Project 2 - 2" },
+                  { src: "/iplookapp.png", alt: "ip", width: 250, height: 250 },
+        
                 ],
                 techIcons: [
                   { src: "react native.svg", alt: "rn" },
