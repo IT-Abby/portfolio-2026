@@ -723,7 +723,18 @@ export default function Home() {
               >
                 Curriculum Vitae
               </a>
+              <div>
+                <p>•</p>
+              </div>
+              <a
+                href="/Señar - Resume (WebMobile Developer & UIUX Designer).pdf"
+                download
+                className="text-gray-600 font-semibold hover:text-gray-900"
+              >
+                Resume
+              </a>
             </div>
+
             <div className="flex gap-6 mt-8 md:mt-0">
               <a
                 href="https://github.com/IT-Abby"
