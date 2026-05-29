@@ -727,7 +727,7 @@ export default function Home() {
                 <p>•</p>
               </div>
               <a
-                href="/Señar - Resume (WebMobile Developer & UIUX Designer).pdf"
+                href="/Señar - Resume.pdf"
                 download
                 className="text-gray-600 font-semibold hover:text-gray-900"
               >
