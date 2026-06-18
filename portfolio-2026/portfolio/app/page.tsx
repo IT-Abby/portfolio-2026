@@ -601,7 +601,7 @@ export default function Home() {
 
             <Gallery
               images={[
-                { src: "/toga pic.jpg", alt: "" },
+                { src: "/Toga.jpg", alt: "" },
                 { src: "/pic 1.jpg", alt: "" },
                 { src: "/fjc.jpg", alt: "" },
                 { src: "/fjc 2.jpg", alt: "" },
