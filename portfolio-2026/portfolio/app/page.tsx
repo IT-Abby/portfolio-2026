@@ -16,7 +16,7 @@ import { Marquee } from "@/components/ui/marquee";
 export default function Home() {
   return (
     <NavigationWrapper>
-      <div className="flex flex-col flex-1 bg-white font-[family-name:var(--font-quicksand)]">
+      <div className="flex flex-col flex-1 bg-white font-(family-name:--font-quicksand)">
         {/* Home */}
         <section
           id="home"
@@ -41,7 +41,7 @@ export default function Home() {
               </div>
 
               <h1 className="text-5xl md:text-6xl align-left font-bold leading-tight text-gray-900">
-                Mobile <br /> Application Developer
+                Frontend Engineer (Web & Mobile Application)
               </h1>
               <Image src="divider.svg" alt="divider" width={400} height={100} />
               <p className="text-lg leading-relaxed text-gray-500 max-w-md">
@@ -111,13 +111,13 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center pt-4 gap-6">
               <div className="relative flex items-center justify-center w-full max-w-md aspect-square">
                 {/* Concentric rings */}
-                <div className="absolute w-[110%] h-[110%] rounded-full bg-[#55CDED]/[0.12] animate-[ring-beat_3s_ease-in-out_infinite_0s]" />
-                <div className="absolute w-[100%] h-[100%] rounded-full bg-[#55CDED]/[0.12] animate-[ring-beat_3s_ease-in-out_infinite_0.15s]" />
-                <div className="absolute w-[88%] h-[88%] rounded-full bg-[#55CDED]/[0.13] animate-[ring-beat_3s_ease-in-out_infinite_0.3s]" />
+                <div className="absolute w-[110%] h-[110%] rounded-full bg-[#55CDED]/12 animate-[ring-beat_3s_ease-in-out_infinite_0s]" />
+                <div className="absolute w-full h-full rounded-full bg-[#55CDED]/12 animate-[ring-beat_3s_ease-in-out_infinite_0.15s]" />
+                <div className="absolute w-[88%] h-[88%] rounded-full bg-[#55CDED]/13 animate-[ring-beat_3s_ease-in-out_infinite_0.3s]" />
                 <div className="absolute w-[76%] h-[76%] rounded-full bg-[#55CDED]/[0.14] animate-[ring-beat_3s_ease-in-out_infinite_0.45s]" />
-                <div className="absolute w-[64%] h-[64%] rounded-full bg-[#55CDED]/[0.15] animate-[ring-beat_3s_ease-in-out_infinite_0.6s]" />
-                <div className="absolute w-[52%] h-[52%] rounded-full bg-[#55CDED]/[0.16] animate-[ring-beat_3s_ease-in-out_infinite_0.75s]" />
-                <div className="absolute w-[40%] h-[40%] rounded-full bg-[#55CDED]/[0.17] animate-[ring-beat_3s_ease-in-out_infinite_0.9s]" />
+                <div className="absolute w-[64%] h-[64%] rounded-full bg-[#55CDED]/15 animate-[ring-beat_3s_ease-in-out_infinite_0.6s]" />
+                <div className="absolute w-[52%] h-[52%] rounded-full bg-[#55CDED]/16 animate-[ring-beat_3s_ease-in-out_infinite_0.75s]" />
+                <div className="absolute w-[40%] h-[40%] rounded-full bg-[#55CDED]/17 animate-[ring-beat_3s_ease-in-out_infinite_0.9s]" />
                 <MockupCard />
               </div>
               <p className="text-lg leading-relaxed text-gray-500 max-w-md text-justify">
